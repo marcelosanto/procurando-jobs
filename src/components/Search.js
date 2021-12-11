@@ -9,39 +9,51 @@ import {
   InputLeftElement,
 } from '@chakra-ui/react'
 import { FiSearch } from 'react-icons/fi'
+import '@fontsource/lato'
+import { useEffect, useState } from 'react'
 
 export const Search = () => {
+  const [searchText, setSearchText] = useState('')
+
+  useEffect(() => {
+    console.log('Buscandoooo')
+  }, [])
+
   return (
     <Flex
-      flexDir="column"
-      w="full"
-      bg="blackAlpha.500"
-      px="200px"
-      py="60px"
-      mb="120px"
-      alignItems="center"
+      flexDir='column'
+      w='full'
+      bg='blackAlpha.600'
+      px='200px'
+      py='60px'
+      pb='100px'
+      alignItems='center'
+      borderBottom='1px'
+      borderBottomColor='whiteAlpha.200'
     >
-      <Box pb="60px">
+      <Box pb='60px'>
         <Heading
-          fontWeight="extrabold"
+          fontWeight='extrabold'
           fontSize={54}
-          letterSpacing="1px"
-          color="green"
+          letterSpacing='1px'
+          color='green'
         >
-          Busca sua vaga de arcodo com sua Stack.
+          Ache sua vaga de arcodo com sua Stack.
         </Heading>
       </Box>
       <Box>
         <Stack spacing={4}>
-          <InputGroup size="lg" w="600px">
+          <InputGroup size='lg' w='600px'>
             <InputLeftElement
-              pointerEvents="none"
-              children={<Icon as={FiSearch} color="green" />}
+              pointerEvents='none'
+              children={<Icon as={FiSearch} color='green' />}
             />
             <Input
-              focusBorderColor="lime"
-              type="text"
-              placeholder="Buscar..."
+              focusBorderColor='lime'
+              type='text'
+              placeholder='Buscar...'
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
             />
           </InputGroup>
         </Stack>

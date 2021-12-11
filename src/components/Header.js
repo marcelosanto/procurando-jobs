@@ -1,5 +1,5 @@
-import { Flex, Heading, HStack, Icon, Link } from '@chakra-ui/react'
-import { FiArrowUpRight } from 'react-icons/fi'
+import { Button, Flex, Heading, HStack, Icon, Link } from '@chakra-ui/react'
+import { FaGithub } from 'react-icons/fa'
 
 export const Header = () => {
   return (
@@ -28,10 +28,9 @@ export const Header = () => {
           <Link>Sobre</Link>
         </HStack>
       </Flex>
-      <Link color="whiteAlpha.800">
+      <Button colorScheme="pink" ariant="solid" leftIcon={<FaGithub />}>
         Github
-        <Icon as={FiArrowUpRight} ml="10px" h={5} w={5} />
-      </Link>
+      </Button>
     </Flex>
   )
 }

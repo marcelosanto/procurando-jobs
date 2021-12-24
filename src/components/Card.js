@@ -1,4 +1,5 @@
 import { Badge, Box, Flex, Wrap, Link } from '@chakra-ui/react'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 export const Card = ({ dados }) => {
   return (
@@ -8,6 +9,7 @@ export const Card = ({ dados }) => {
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
+      justifyContent="space-between"
     >
       <Box p="6">
         <Box
@@ -48,19 +50,21 @@ export const Card = ({ dados }) => {
         >
           {dados.body.substring(0, 200) + '...'}
         </Box>
-        <Flex justifyContent="flex-end">
-          <Link
-            href={dados.html_url}
-            borderRadius="md"
-            bg="green"
-            color="white"
-            px={4}
-            h={8}
-          >
-            Ver vaga
-          </Link>
-        </Flex>
       </Box>
+      <Flex flexDir="row" m={10} justifyContent="end">
+        <Link
+          href={dados.html_url}
+          borderRadius="md"
+          color="white"
+          bg="green.900"
+          textAlign="center"
+          px={4}
+          h={8}
+          isExternal
+        >
+          Visualizar <ExternalLinkIcon mx="2px" />
+        </Link>
+      </Flex>
     </Flex>
   )
 }

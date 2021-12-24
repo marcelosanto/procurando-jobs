@@ -10,48 +10,46 @@ import {
 } from '@chakra-ui/react'
 import { FiSearch } from 'react-icons/fi'
 import '@fontsource/lato'
-import { useEffect, useState } from 'react'
+
+import { useJobsStore } from '../store'
 
 export const Search = () => {
-  const [searchText, setSearchText] = useState('')
-
-  useEffect(() => {
-    console.log('Buscandoooo')
-  }, [])
+  const filter = useJobsStore((state) => state.filter)
+  const setFilter = useJobsStore((state) => state.setFilter)
 
   return (
     <Flex
-      flexDir='column'
-      w='full'
-      bg='black'
-      px='200px'
-      py='60px'
-      pb='100px'
-      alignItems='center'
+      flexDir="column"
+      w="full"
+      bg="black"
+      px="200px"
+      py="60px"
+      pb="100px"
+      alignItems="center"
     >
-      <Box pb='60px'>
+      <Box pb="60px">
         <Heading
-          fontWeight='extrabold'
+          fontWeight="extrabold"
           fontSize={54}
-          letterSpacing='1px'
-          color='green'
+          letterSpacing="1px"
+          color="green"
         >
           Ache vaga de arcodo com sua Stack.
         </Heading>
       </Box>
       <Box>
         <Stack spacing={4}>
-          <InputGroup size='lg' w='600px'>
+          <InputGroup size="lg" w="600px">
             <InputLeftElement
-              pointerEvents='none'
-              children={<Icon as={FiSearch} color='green' />}
+              pointerEvents="none"
+              children={<Icon as={FiSearch} color="green" />}
             />
             <Input
-              focusBorderColor='lime'
-              type='text'
-              placeholder='Buscar...'
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
+              focusBorderColor="lime"
+              type="text"
+              placeholder="Buscar..."
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
             />
           </InputGroup>
         </Stack>

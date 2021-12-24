@@ -10,7 +10,14 @@ export const Card = ({ dados }) => {
       overflow='hidden'
     >
       <Box p='6'>
-        <Box pb='3' mt='1' fontWeight='semibold' as='h4' lineHeight='tight'>
+        <Box
+          pb='3'
+          mt='1'
+          fontWeight='semibold'
+          as='h4'
+          lineHeight='tight'
+          color='white'
+        >
           {dados.title}
         </Box>
 
@@ -31,20 +38,28 @@ export const Card = ({ dados }) => {
           ))}
         </Wrap>
 
-        <Box pb='4' mt='4' fontWeight='semibold' as='h4' lineHeight='tight'>
+        <Box
+          pb='4'
+          mt='4'
+          fontWeight='semibold'
+          as='h4'
+          lineHeight='tight'
+          color='white'
+        >
           {dados.body.substring(0, 200) + '...'}
         </Box>
-
-        <Link
-          href={dados.html_url}
-          borderRadius='md'
-          bg='green'
-          color='white'
-          px={4}
-          h={8}
-        >
-          Ver vaga
-        </Link>
+        <Flex justifyContent='flex-end'>
+          <Link
+            href={dados.html_url}
+            borderRadius='md'
+            bg='green'
+            color='white'
+            px={4}
+            h={8}
+          >
+            Ver vaga
+          </Link>
+        </Flex>
       </Box>
     </Flex>
   )

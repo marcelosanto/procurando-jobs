@@ -2,27 +2,21 @@ import { Flex, Wrap } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { Card } from '../../components/Card'
 
-import axios from 'axios'
+import { useJobsStore } from '../../store'
 
 export const Vagas = () => {
-  const [data, setData] = useState([])
+  //const [data, setData] = useState([])
 
-  const fetchVagasData = async () => {
-    const res = await axios.get(
-      'https://api.github.com/repos/react-brasil/vagas/issues?page=1&per_page=100'
-    )
-    //console.log(res.data)
-    setData(res.data)
-  }
+  const jobs = useJobsStore((state) => state.jobs)
 
   useEffect(() => {
-    fetchVagasData()
+    //fetchVagasData()
   }, [])
 
   return (
-    <Flex py='60px' w='full' px='100px' bg='blackAlpha.600'>
-      <Wrap pb='10px' display='flex' alignItems='baseline'>
-        {data.map((item) => (
+    <Flex py="60px" w="full" px="100px" bg="black">
+      <Wrap pb="10px" display="flex" alignItems="baseline">
+        {jobs.map((item) => (
           <Card dados={item} />
         ))}
       </Wrap>

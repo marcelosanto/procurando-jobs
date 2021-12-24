@@ -21,7 +21,7 @@ export const Search = () => {
     <Flex
       flexDir="column"
       w="full"
-      bg="black"
+      bg="red"
       px="200px"
       py="60px"
       pb="100px"
